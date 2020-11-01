@@ -1,6 +1,7 @@
 
 public class SnakeLadder {
 
+	final static int winPoint = 100;
 	final static int startPosition=0;
 	final static int NumberOfPlayer=1;
 	final static int noPlay=1;
@@ -27,19 +28,26 @@ public class SnakeLadder {
     }
     
     public static void main(String[] args) {
-		int diceNumber = rollDice();
-		int option = playerOption();
+    	
+    	while(getUserPosition() <= winPoint) 
+    	{
+    		int diceNumber = rollDice();
+    		int option = playerOption();
 		
-		if(option == noPlay) {
-			setUserPosition(getUserPosition());
-		}
-		else if(option == ladder) {
-			setUserPosition(getUserPosition() + diceNumber);
-		}
-		else if(option == snake) {
-			setUserPosition(getUserPosition() - diceNumber);
-		}
-		
-		System.out.println(getUserPosition());
+    		if(option == noPlay) {
+    			setUserPosition(getUserPosition());
+    		}
+    		else if(option == ladder) {
+    			setUserPosition(getUserPosition() + diceNumber);
+    		}
+    		else if(option == snake) {
+    			setUserPosition(getUserPosition() - diceNumber);
+    		}
+    		
+    		if(getUserPosition() < 0) {
+    			setUserPosition(startPosition);
+    		}
+    		
+    	}
 	}
 }
