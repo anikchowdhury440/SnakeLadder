@@ -29,7 +29,7 @@ public class SnakeLadder {
     
     public static void main(String[] args) {
     	
-    	while(getUserPosition() <= winPoint) 
+    	while(getUserPosition() != winPoint) 
     	{
     		int diceNumber = rollDice();
     		int option = playerOption();
@@ -38,7 +38,12 @@ public class SnakeLadder {
     			setUserPosition(getUserPosition());
     		}
     		else if(option == ladder) {
-    			setUserPosition(getUserPosition() + diceNumber);
+    			if(getUserPosition()+diceNumber > 100) {
+    				setUserPosition(getUserPosition());
+    			}
+    			else {
+    				setUserPosition(getUserPosition() + diceNumber);
+    			}
     		}
     		else if(option == snake) {
     			setUserPosition(getUserPosition() - diceNumber);
