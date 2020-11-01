@@ -29,10 +29,14 @@ public class SnakeLadder {
     
     public static void main(String[] args) {
     	
+    	int noOfDiceThrown = 0;
+    	
     	while(getUserPosition() != winPoint) 
     	{
     		int diceNumber = rollDice();
     		int option = playerOption();
+    		
+    		noOfDiceThrown++;
 		
     		if(option == noPlay) {
     			setUserPosition(getUserPosition());
@@ -53,6 +57,9 @@ public class SnakeLadder {
     			setUserPosition(startPosition);
     		}
     		
+    		System.out.println(" Times of Dice Thrown : " + noOfDiceThrown + "\t Position of User :" +getUserPosition());
     	}
+    	
+    	System.out.println("Total No of Dice Thrown: " + noOfDiceThrown);
 	}
 }
